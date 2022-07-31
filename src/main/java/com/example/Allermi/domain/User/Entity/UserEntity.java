@@ -11,12 +11,9 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 public class UserEntity {
     @Id @GeneratedValue
-
     private Long id;
     @NotNull
     private String nickname;
@@ -24,4 +21,11 @@ public class UserEntity {
     private String password;
     @NotNull
     private String allergy;
+
+    @Builder
+    public UserEntity(String nickname, String password, String allergy) {
+        this.nickname = nickname;
+        this.password = password;
+        this.allergy = allergy;
+    }
 }
