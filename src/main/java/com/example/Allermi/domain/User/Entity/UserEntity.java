@@ -4,9 +4,8 @@ package com.example.Allermi.domain.User.Entity;
 import com.sun.istack.NotNull;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,11 +18,11 @@ public class UserEntity {
     private String nickname;
     @NotNull
     private String password;
-    @NotNull
-    private String allergy;
+    @ElementCollection
+    private List<String> allergy;
 
     @Builder
-    public UserEntity(String nickname, String password, String allergy) {
+    public UserEntity(String nickname, String password, List<String> allergy) {
         this.nickname = nickname;
         this.password = password;
         this.allergy = allergy;
