@@ -992,9 +992,53 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8_bin</CollationName>
     </table>
-    <column id="286" parent="285" name="next_val">
+    <table id="286" parent="274" name="user_entity">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <table id="287" parent="274" name="user_entity_allergy">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8_bin</CollationName>
+    </table>
+    <column id="288" parent="285" name="next_val">
       <DataType>bigint|0s</DataType>
       <Position>1</Position>
     </column>
+    <column id="289" parent="286" name="id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="290" parent="286" name="nickname">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="291" parent="286" name="password">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>3</Position>
+    </column>
+    <key id="292" parent="286" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+    </key>
+    <column id="293" parent="287" name="user_entity_id">
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="294" parent="287" name="allergy">
+      <DataType>varchar(255)|0s</DataType>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="295" parent="287" name="FKcafq9pywa2sldd1bf6wcm4xhm">
+      <ColNames>user_entity_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>user_entity</RefTableName>
+    </foreign-key>
+    <index id="296" parent="287" name="FKcafq9pywa2sldd1bf6wcm4xhm">
+      <ColNames>user_entity_id</ColNames>
+      <Type>btree</Type>
+    </index>
   </database-model>
 </dataSource>
